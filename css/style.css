@@ -1,4 +1,5 @@
 :root {
+  /* Variables CSS pour les couleurs */
   --orange: #f68b1e;
   --dark-bg: #1c1c1c;
   --light-bg: #2a2a2a;
@@ -8,11 +9,11 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Évite que padding/margin affecte la taille totale */
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Arial', sans-serif; /* Police principale */
   background-color: var(--dark-bg);
   color: var(--white);
 }
@@ -21,7 +22,7 @@ body {
 header {
   background-color: var(--light-bg);
   padding: 10px 20px;
-  position: sticky;
+  position: sticky; /* Reste en haut lors du scroll */
   top: 0;
   z-index: 100;
   display: flex;
@@ -51,7 +52,7 @@ header {
   text-decoration: none;
   font-weight: 500;
   font-size: 18px;
-  transition: color 0.3s;
+  transition: color 0.3s; /* Animation au hover */
 }
 
 .nav-links li a:hover {
@@ -60,7 +61,7 @@ header {
 
 /* Burger menu */
 .burger {
-  display: none;
+  display: none; /* Caché sur desktop */
   flex-direction: column;
   cursor: pointer;
 }
@@ -72,23 +73,24 @@ header {
   margin: 4px 0;
 }
 
+/* Menu burger responsive */
 @media screen and (max-width: 768px) {
   .nav-links {
-    display: none;
+    display: none; /* Caché par défaut */
     flex-direction: column;
     background-color: var(--light-bg);
     width: 100%;
     text-align: center;
   }
   .nav-links.nav-active {
-    display: flex;
+    display: flex; /* Affiché quand actif */
   }
   .burger {
-    display: flex;
+    display: flex; /* Affiché sur mobile */
   }
 }
 
-/* Hero */
+/* Hero section */
 .hero {
   text-align: center;
   padding: 80px 20px;
@@ -132,8 +134,7 @@ header {
   border-radius: 10px;
   object-fit: cover;
   transition: opacity 0.3s ease;
-  /* Animation flottante automatique */
-  animation: float 4s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite; /* animation flottante verticale */
 }
 
 /* Animation flottante verticale */
@@ -163,32 +164,32 @@ header {
 
 .transformation {
   cursor: pointer;
-  color: #ffd700;
+  color: #ffd700; /* doré pour transformations */
   margin-right: 5px;
   transition: color 0.3s;
 }
 
 .transformation:hover {
-  color: #ff4500;
+  color: #ff4500; /* orange-rouge au hover */
   text-decoration: underline;
 }
 
 /* Flèches du carrousel */
 #prevBtn, #nextBtn {
-  background: none;   /* pas de fond blanc */
+  background: none;
   border: none;
   padding: 0;
 }
 
 #prevBtn img, #nextBtn img {
-  width: 100px;       /* flèche plus grosse */
+  width: 100px; 
   height: 100px;
   cursor: pointer;
   transition: transform 0.2s;
 }
 
 #prevBtn img:hover, #nextBtn img:hover {
-  transform: scale(1.2);
+  transform: scale(1.2); /* Zoom au hover */
 }
 
 /* Barre de puissance */
@@ -204,10 +205,10 @@ header {
 
 #power-bar {
   height: 100%;
-  width: 0%;
+  width: 0%; /* initialement vide */
   background-color: var(--orange);
   border-radius: 10px;
-  transition: width 0.5s ease;
+  transition: width 0.5s ease; /* animation lors du changement */
   text-align: center;
   color: #000;
   font-weight: bold;
@@ -221,16 +222,19 @@ header {
 }
 
 .carousel-logo img {
-  width: 20%;       /* s'adapte à la taille de l'écran */
-  max-width: 200px; /* limite max */
+  width: 20%;
+  max-width: 200px;
   height: auto;
   display: block;
   margin: 0 auto;
 }
 
+/* Footer */
 footer {
   text-align: center;
 }
+
+/* Page personnages */
 .characters {
   display: flex;
   justify-content: space-between;
@@ -244,14 +248,12 @@ footer {
 .character-img {
   flex: 1 1 0;
   width: 100%;
-  height: 100vh;
+  height: 100vh; /* occupe toute la hauteur */
   object-fit: cover;
   margin: 0;
   border-radius: 0;
 }
 
 .character-img:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* zoom léger au hover */
 }
-
-
