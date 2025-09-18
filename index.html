@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Univers DBZ - Accueil</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <nav>
+    <div class="logo">Univers DBZ</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="personnages.html">Persos</a></li>
+    </ul>
+    <div class="burger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Bienvenue dans l'univers DBZ</h1>
+    <p>Découvrez les héros et leurs incroyables aventures !</p>
+  </section>
+
+    <!-- Image au-dessus du carrousel -->
+<div class="carousel-logo">
+  <img src="images/dbz.png" alt="Bannière DBZ">
+</div>
+
+  <section class="carousel-interactive">
+    <button id="prevBtn">
+      <img src="images/fleche-gauche.png" alt="Précédent">
+    </button>
+
+    <div class="character-display">
+      <img id="char-img" src="images/goku.png" alt="Goku">
+      <div class="char-info">
+        <h2 id="char-name">Goku</h2>
+
+        <p id="char-power"><strong>Puissance:</strong></p>
+        <div class="power-bar-container">
+          <div id="power-bar"></div>
+        </div>
+
+        <p id="char-history"><strong>Histoire:</strong> Saiyan envoyé sur Terre, défenseur de l'univers.</p>
+        <p id="char-summary"><strong>Résumé:</strong> Toujours prêt à se battre pour protéger ses amis et sa planète.</p>
+
+        <p id="char-transformations"><strong>Transformations:</strong></p>
+        <p id="char-relations"><strong>Relations:</strong> Yamcha (ami), Piccolo (allié), Vegeta (rival)</p>
+        <p id="char-couple"><strong>Couple:</strong> Chichi</p>
+      </div>
+    </div>
+
+    <button id="nextBtn">
+      <img src="images/fleche-droite.png" alt="Suivant">
+    </button>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Univers DBZ</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
