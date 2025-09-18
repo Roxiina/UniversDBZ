@@ -15,9 +15,9 @@ const characters = [
     history: "Saiyan envoyé sur Terre, défenseur de l'univers.",
     summary: "Toujours prêt à se battre pour protéger ses amis et sa planète.",
     transformationsList: [
-      { name: "Super Saiyan", img: "images/goku-super.png" },
-      { name: "Super Saiyan God", img: "images/goku-god.png" },
-      { name: "Ultra Instinct", img: "images/goku-ultra.png" }
+      { name: "Super Saiyan", img: "images/goku-super.jpg" },
+      { name: "Super Saiyan God", img: "images/goku-god.jpg" },
+      { name: "Ultra Instinct", img: "images/goku-ultra.jpg" }
     ],
     relations: "Yamcha (ami), Piccolo (allié), Vegeta (rival)",
     couple: "Chichi"
@@ -29,9 +29,9 @@ const characters = [
     history: "Prince des Saiyans, rival éternel de Goku.",
     summary: "Très fier, il cherche constamment à dépasser Goku.",
     transformationsList: [
-      { name: "Super Saiyan", img: "images/vegeta-super.png" },
-      { name: "Super Saiyan Blue", img: "images/vegeta-blue.png" },
-      { name: "Ultra Ego", img: "images/vegeta-ultra.png" }
+      { name: "Super Saiyan", img: "images/vegeta-super.jpg" },
+      { name: "Super Saiyan Blue", img: "images/vegeta-blue.jpg" },
+      { name: "Ultra Ego", img: "images/vegeta-ultra.jpg" }
     ],
     relations: "Bulma (amie), Goku (rival)",
     couple: "Bulma"
