@@ -92,7 +92,6 @@ header {
 .hero {
   text-align: center;
   padding: 80px 20px;
-  background-image: url('../images/hero-bg.jpg');
   background-size: cover;
   background-position: center;
 }
