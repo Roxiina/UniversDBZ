@@ -34,7 +34,7 @@ const characters = [  // Tableau d'objets représentant les personnages
       { name: "Super Saiyan Blue", img: "images/vegeta-blue.jpg" },
       { name: "Ultra Ego", img: "images/vegeta-ultra.jpg" }
     ],
-    relations: "Bulma (amie), Goku (rival)",
+    relations: "Goku (rival)",
     couple: "Bulma"
   },
   {
@@ -46,8 +46,8 @@ const characters = [  // Tableau d'objets représentant les personnages
     transformationsList: [
       { name: "Aucune", img: "images/krillin.png" } // Pas de transformation
     ],
-    relations: "Goku (ami), Android 18 (allié)",
-    couple: "Android 18"
+    relations: "Goku (ami)",
+    couple: "C-18"
   }
 ];
 
