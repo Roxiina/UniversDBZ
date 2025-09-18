@@ -14,19 +14,30 @@ Le site est **responsive mobile-first** et utilise des **micro-interactions Java
 ---
 
 ## Technologies utilisées
-- HTML5  
-- CSS3  
-- JavaScript (vanilla)  
-- Hébergement via GitHub Pages
+
+- HTML5
+- CSS3
+- JavaScript (ES6)
+- Vidéo HTML5
 
 ---
 
 ## Fonctionnalités
 
-- Navigation entre les pages via le menu principal  
-- **Menu burger** pour les écrans mobiles  
-- **Affichage des détails** des personnages au clic  
-- Design responsive adapté aux mobiles, tablettes et desktop  
+- **Carrousel interactif** des personnages principaux : Goku, Vegeta, Krillin.
+- **Transformations** affichées au survol des personnages.
+- **Barre de puissance** proportionnelle à la force du personnage.
+- **Menu burger** pour navigation mobile.
+- **Sélection de personnages** avec lecture de vidéos correspondantes.
+- **Design responsive** pour une utilisation sur mobile et desktop.
+
+---
+
+## Installation et utilisation
+
+1. Cloner le dépôt :
+   ```bash
+   git clone https://github.com/TON_UTILISATEUR/UniversDBZ.git
 
 ---
 
