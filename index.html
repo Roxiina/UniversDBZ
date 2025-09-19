@@ -1,50 +1,73 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <!-- Définition du charset pour supporter les accents -->
   <meta charset="UTF-8">
+  
+  <!-- Règle responsive : largeur égale à la largeur de l'appareil -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Titre de la page affiché dans l'onglet du navigateur -->
   <title>Univers DBZ - Accueil</title>
+  
+  <!-- Lien vers la feuille de style principale -->
   <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Police Google Fonts "Bangers" utilisée pour les titres / logo -->
   <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
 </head>
+
 <body>
 <header>
   <nav class="nav-container">
+    <!-- Menu burger pour les mobiles -->
     <div class="burger">
-      <div></div>
-      <div></div>
-      <div></div>
+      <div></div> <!-- Ligne 1 du burger -->
+      <div></div> <!-- Ligne 2 du burger -->
+      <div></div> <!-- Ligne 3 du burger -->
     </div>
+
+    <!-- Liens de navigation principaux -->
     <ul class="nav-links">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="personnages.html">Persos</a></li>
+      <li><a href="index.html">Accueil</a></li> <!-- Lien vers la page d'accueil -->
+      <li><a href="personnages.html">Persos</a></li> <!-- Lien vers la page des personnages -->
     </ul>
+
+    <!-- Logo du site, aligné à droite sur desktop -->
     <div class="logo">
-      <img src="images/logo.png" alt="Univers DBZ">
-      <span>Univers DBZ</span>
+      <img src="images/logo.png" alt="Univers DBZ"> <!-- Image du logo -->
+      <span>Univers DBZ</span> <!-- Texte à côté du logo -->
     </div>
   </nav>
 </header>
 
 <main>
+  <!-- Section Hero : message principal de bienvenue -->
   <section class="hero">
     <h1>Bienvenue dans l'univers DBZ</h1>
     <p>Découvrez les héros et leurs incroyables aventures !</p>
   </section>
 
+  <!-- Logo / bannière DBZ avant le carrousel -->
   <div class="carousel-logo">
     <img src="images/dbz.png" alt="Bannière DBZ">
   </div>
 
+  <!-- Carrousel interactif : affiche les personnages avec flèches de navigation -->
   <section class="carousel-interactive">
+    <!-- Bouton précédent -->
     <button id="prevBtn">
       <img src="images/fleche-gauche.png" alt="Précédent">
     </button>
 
+    <!-- Conteneur du personnage affiché -->
     <div class="character-display">
+      <!-- Conteneur fixe pour l'image pour éviter que la taille change lors des transformations -->
       <div class="char-img-container">
         <img id="char-img" src="images/goku.png" alt="Goku">
       </div>
+
+      <!-- Informations du personnage -->
       <div class="char-info">
         <h2 id="char-name">Goku</h2>
         <p id="char-power"><strong>Puissance:</strong></p>
@@ -59,16 +82,19 @@
       </div>
     </div>
 
+    <!-- Bouton suivant -->
     <button id="nextBtn">
       <img src="images/fleche-droite.png" alt="Suivant">
     </button>
   </section>
 </main>
 
+<!-- Pied de page -->
 <footer>
   <p>&copy; 2025 Univers DBZ</p>
 </footer>
 
+<!-- Script JavaScript pour menu burger et carrousel interactif -->
 <script src="js/script.js"></script>
 </body>
 </html>

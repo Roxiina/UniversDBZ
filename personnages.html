@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <!-- Définition du charset pour accents -->
   <meta charset="UTF-8">
+  
+  <!-- Responsive : largeur égale à la largeur de l'appareil -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <title>Univers DBZ - Persos</title>
+  
+  <!-- Feuille de style principale -->
   <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Police Google "Bangers" pour les titres / logo -->
   <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
 </head>
+
 <body>
 <header>
   <nav class="nav-container">
+    <!-- Menu burger pour mobile -->
     <div class="burger">
       <div></div>
       <div></div>
       <div></div>
     </div>
+
+    <!-- Liens de navigation -->
     <ul class="nav-links">
       <li><a href="index.html">Accueil</a></li>
       <li><a href="personnages.html">Persos</a></li>
     </ul>
+
+    <!-- Logo du site -->
     <div class="logo">
       <img src="images/logo.png" alt="Univers DBZ">
       <span>Univers DBZ</span>
@@ -27,7 +41,9 @@
 </header>
 
 <main>
+  <!-- Section personnages -->
   <section class="characters">
+    <!-- Conteneur image fixe pour éviter que la taille change -->
     <div class="character-img-container">
       <img src="images/goku.png" alt="Goku" class="character-img" id="goku">
     </div>
@@ -44,6 +60,7 @@
   <p>&copy; 2025 Univers DBZ</p>
 </footer>
 
+<!-- Script JavaScript pour menu burger et carrousel -->
 <script src="js/script.js"></script>
 </body>
 </html>
