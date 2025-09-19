@@ -1,55 +1,53 @@
-// Menu burger mobile
+// Menu burger
 const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav-links');
-burger.addEventListener('click', () => {
-  nav.classList.toggle('nav-active');
-});
+burger.addEventListener('click', () => nav.classList.toggle('nav-active'));
 
 // Carrousel interactif
 const characters = [
   {
-    name: "Goku",
-    img: "images/goku.png",
-    power: "9000+",
-    history: "Saiyan envoyé sur Terre, défenseur de l'univers.",
-    summary: "Toujours prêt à se battre pour protéger ses amis et sa planète.",
-    transformationsList: [
-      { name: "Super Saiyan", img: "images/goku-super.jpg" },
-      { name: "Super Saiyan God", img: "images/goku-god.jpg" },
-      { name: "Ultra Instinct", img: "images/goku-ultra.jpg" }
+    name:"Goku",
+    img:"images/goku.png",
+    power:"9000+",
+    history:"Saiyan envoyé sur Terre, défenseur de l'univers.",
+    summary:"Toujours prêt à se battre pour protéger ses amis et sa planète.",
+    transformationsList:[
+      { name:"Super Saiyan", img:"images/goku-super.jpg" },
+      { name:"Super Saiyan God", img:"images/goku-god.jpg" },
+      { name:"Ultra Instinct", img:"images/goku-ultra.jpg" }
     ],
-    relations: "Yamcha (ami), Piccolo (allié), Vegeta (rival)",
-    couple: "Chichi"
+    relations:"Yamcha (ami), Piccolo (allié), Vegeta (rival)",
+    couple:"Chichi"
   },
   {
-    name: "Vegeta",
-    img: "images/vegeta.png",
-    power: "8500+",
-    history: "Prince des Saiyans, rival éternel de Goku.",
-    summary: "Très fier, il cherche constamment à dépasser Goku.",
-    transformationsList: [
-      { name: "Super Saiyan", img: "images/vegeta-super.jpg" },
-      { name: "Super Saiyan Blue", img: "images/vegeta-blue.jpg" },
-      { name: "Ultra Ego", img: "images/vegeta-ultra.jpg" }
+    name:"Vegeta",
+    img:"images/vegeta.png",
+    power:"8500+",
+    history:"Prince des Saiyans, rival éternel de Goku.",
+    summary:"Très fier, il cherche constamment à dépasser Goku.",
+    transformationsList:[
+      { name:"Super Saiyan", img:"images/vegeta-super.jpg" },
+      { name:"Super Saiyan Blue", img:"images/vegeta-blue.jpg" },
+      { name:"Ultra Ego", img:"images/vegeta-ultra.jpg" }
     ],
-    relations: "Goku (rival)",
-    couple: "Bulma"
+    relations:"Goku (rival)",
+    couple:"Bulma"
   },
   {
-    name: "Krillin",
-    img: "images/krillin.png",
-    power: "2000",
-    history: "Meilleur ami de Goku, courageux malgré sa taille.",
-    summary: "Maître d'arts martiaux et toujours fidèle à ses amis.",
-    transformationsList: [{ name: "Aucune", img: "images/krillin.png" }],
-    relations: "Goku (ami)",
-    couple: "C-18"
+    name:"Krillin",
+    img:"images/krillin.png",
+    power:"2000",
+    history:"Meilleur ami de Goku, courageux malgré sa taille.",
+    summary:"Maître d'arts martiaux et toujours fidèle à ses amis.",
+    transformationsList:[{ name:"Aucune", img:"images/krillin.png" }],
+    relations:"Goku (ami)",
+    couple:"C-18"
   }
 ];
 
 let currentIndex = 0;
 
-// Sélection éléments DOM
+// Sélection DOM
 const charImg = document.getElementById('char-img');
 const charName = document.getElementById('char-name');
 const charPower = document.getElementById('char-power');
@@ -75,14 +73,12 @@ function updateCharacter() {
   charCouple.textContent = `Couple: ${char.couple}`;
 
   const numericPower = parseInt(char.power.replace('+','')) || 0;
-  const powerPercent = Math.min((numericPower / maxPower) * 100, 100);
+  const powerPercent = Math.min((numericPower/maxPower)*100, 100);
   powerBar.style.width = powerPercent + '%';
   powerBar.textContent = char.power;
 
   charTransformations.innerHTML = '<strong>Transformations:</strong> ' + 
-    char.transformationsList.map(t => 
-      `<span class="transformation" data-img="${t.img}">${t.name}</span>`
-    ).join(', ');
+    char.transformationsList.map(t => `<span class="transformation" data-img="${t.img}">${t.name}</span>`).join(', ');
 
   const transElements = document.querySelectorAll('.transformation');
   transElements.forEach(el => {
@@ -116,5 +112,4 @@ nextBtn.addEventListener('click', () => {
   updateCharacter();
 });
 
-// Initialisation
 updateCharacter();
