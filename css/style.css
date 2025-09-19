@@ -90,7 +90,7 @@ body::before {
 /* ------------------ HERO ------------------ */
 .hero {
   text-align: center;
-  padding: 80px 20px;
+  padding: 1px 0px;
 }
 .hero h1 { font-size: 2.5rem; margin-bottom: 20px; color: var(--orange); }
 .hero p { font-size: 1.2rem; margin-bottom: 20px; }
@@ -124,14 +124,12 @@ body::before {
 #char-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;   /* garde l’image entière */
   border-radius: 10px;
-  position: absolute;
-  top: 0;
-  left: 0;
   transition: opacity 0.3s ease;
   animation: float 4s ease-in-out infinite;
 }
+
 
 /* Animation flottante */
 @keyframes float {
@@ -198,7 +196,7 @@ body::before {
 /* Logo carrousel */
 .carousel-logo {
   text-align: center;
-  margin: 20px 0;
+  margin: 10px 0;
 }
 .carousel-logo img {
   width: 20%;
@@ -231,13 +229,15 @@ footer {
   position: relative;
   flex-shrink: 0;
 }
+
 .character-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;   /* ✅ garde l’image entière */
   border-radius: 10px;
   transition: transform 0.3s;
   animation: float 4s ease-in-out infinite;
+  background: none; 
 }
 .character-img:hover { transform: scale(1.05); }
 
