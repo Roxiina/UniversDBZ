@@ -1,76 +1,80 @@
 <!DOCTYPE html>
-<html lang="fr"> <!-- Déclaration du type de document et langue française -->
+<html lang="fr">
 <head>
-  <meta charset="UTF-8"> <!-- Encodage des caractères pour supporter les accents -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Rendu responsive sur mobiles/tablettes -->
-  <title>Univers DBZ - Accueil</title> <!-- Titre affiché dans l'onglet du navigateur -->
-  <link rel="stylesheet" href="css/style.css"> <!-- Lien vers la feuille de style CSS externe -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Univers DBZ - Accueil</title>
+  <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
 </head>
 <body>
 <header>
-  <nav> <!-- Barre de navigation -->
-    <div class="logo">
-        <img src="images/logo.png" alt="Univers DBZ">
-        <span>Univers DBZ</span>
-    </div> <!-- Logo ou nom du site -->
-    <ul class="nav-links"> <!-- Liste des liens de navigation -->
-      <li><a href="index.html">Accueil</a></li> <!-- Lien vers la page d'accueil -->
-      <li><a href="personnages.html">Persos</a></li> <!-- Lien vers la page des personnages -->
+  <nav class="nav-container">
+    <!-- Menu burger mobile -->
+    <div class="burger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <!-- Liens navigation -->
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="personnages.html">Persos</a></li>
     </ul>
-    <div class="burger"> <!-- Menu burger pour version mobile -->
-      <div></div> <!-- Ligne du menu burger -->
-      <div></div>
-      <div></div>
+
+    <!-- Logo à droite -->
+    <div class="logo">
+      <img src="images/logo.png" alt="Univers DBZ">
+      <span>Univers DBZ</span>
     </div>
   </nav>
 </header>
 
 <main>
-  <section class="hero"> <!-- Section principale d'accueil avec message de bienvenue -->
+  <!-- Hero section -->
+  <section class="hero">
     <h1>Bienvenue dans l'univers DBZ</h1>
     <p>Découvrez les héros et leurs incroyables aventures !</p>
   </section>
 
-  <!-- Image au-dessus du carrousel -->
+  <!-- Logo/carrousel décoratif -->
   <div class="carousel-logo">
-    <img src="images/dbz.png" alt="Bannière DBZ"> <!-- Image décorative / logo du carrousel -->
+    <img src="images/dbz.png" alt="Bannière DBZ">
   </div>
 
-  <section class="carousel-interactive"> <!-- Section pour carrousel interactif -->
-    <button id="prevBtn"> <!-- Bouton précédent -->
-      <img src="images/fleche-gauche.png" alt="Précédent"> <!-- Icône de flèche gauche -->
+  <!-- Carrousel interactif -->
+  <section class="carousel-interactive">
+    <button id="prevBtn">
+      <img src="images/fleche-gauche.png" alt="Précédent">
     </button>
 
-    <div class="character-display"> <!-- Zone qui affiche les informations d'un personnage -->
-      <img id="char-img" src="images/goku.png" alt="Goku"> <!-- Image du personnage -->
-      <div class="char-info"> <!-- Informations du personnage -->
-        <h2 id="char-name">Goku</h2> <!-- Nom du personnage -->
-
-        <p id="char-power"><strong>Puissance:</strong></p> <!-- Puissance du personnage -->
-        <div class="power-bar-container"> <!-- Conteneur de la barre de puissance -->
-          <div id="power-bar"></div> <!-- Barre de puissance dynamique (via CSS/JS) -->
+    <div class="character-display">
+      <img id="char-img" src="images/goku.png" alt="Goku">
+      <div class="char-info">
+        <h2 id="char-name">Goku</h2>
+        <p id="char-power"><strong>Puissance:</strong></p>
+        <div class="power-bar-container">
+          <div id="power-bar"></div>
         </div>
-
         <p id="char-history"><strong>Histoire:</strong> Saiyan envoyé sur Terre, défenseur de l'univers.</p>
         <p id="char-summary"><strong>Résumé:</strong> Toujours prêt à se battre pour protéger ses amis et sa planète.</p>
-
-        <p id="char-transformations"><strong>Transformations:</strong></p> <!-- Transformations du personnage -->
+        <p id="char-transformations"><strong>Transformations:</strong></p>
         <p id="char-relations"><strong>Relations:</strong> Yamcha (ami), Piccolo (allié), Vegeta (rival)</p>
         <p id="char-couple"><strong>Couple:</strong> Chichi</p>
       </div>
     </div>
 
-    <button id="nextBtn"> <!-- Bouton suivant -->
-      <img src="images/fleche-droite.png" alt="Suivant"> <!-- Icône de flèche droite -->
+    <button id="nextBtn">
+      <img src="images/fleche-droite.png" alt="Suivant">
     </button>
   </section>
 </main>
 
 <footer>
-  <p>&copy; 2025 Univers DBZ</p> <!-- Pied de page avec copyright -->
+  <p>&copy; 2025 Univers DBZ</p>
 </footer>
 
-<script src="js/script.js"></script> <!-- Lien vers le fichier JS qui rend le carrousel interactif -->
+<script src="js/script.js"></script>
 </body>
 </html>

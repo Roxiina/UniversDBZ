@@ -1,21 +1,19 @@
 // Menu burger mobile
-const burger = document.querySelector('.burger'); // Sélectionne l'élément du menu burger
-const nav = document.querySelector('.nav-links'); // Sélectionne la liste de navigation
-
-// Toggle menu burger au clic
+const burger = document.querySelector('.burger');
+const nav = document.querySelector('.nav-links');
 burger.addEventListener('click', () => {
-  nav.classList.toggle('nav-active'); // Ajoute ou retire la classe 'nav-active' pour afficher/masquer le menu
+  nav.classList.toggle('nav-active');
 });
 
-// Carrousel interactif avec transformations
-const characters = [  // Tableau d'objets représentant les personnages
+// Carrousel interactif
+const characters = [
   {
     name: "Goku",
     img: "images/goku.png",
     power: "9000+",
     history: "Saiyan envoyé sur Terre, défenseur de l'univers.",
     summary: "Toujours prêt à se battre pour protéger ses amis et sa planète.",
-    transformationsList: [  // Liste des transformations avec image correspondante
+    transformationsList: [
       { name: "Super Saiyan", img: "images/goku-super.jpg" },
       { name: "Super Saiyan God", img: "images/goku-god.jpg" },
       { name: "Ultra Instinct", img: "images/goku-ultra.jpg" }
@@ -43,17 +41,15 @@ const characters = [  // Tableau d'objets représentant les personnages
     power: "2000",
     history: "Meilleur ami de Goku, courageux malgré sa taille.",
     summary: "Maître d'arts martiaux et toujours fidèle à ses amis.",
-    transformationsList: [
-      { name: "Aucune", img: "images/krillin.png" } // Pas de transformation
-    ],
+    transformationsList: [{ name: "Aucune", img: "images/krillin.png" }],
     relations: "Goku (ami)",
     couple: "C-18"
   }
 ];
 
-let currentIndex = 0; // Index du personnage actuellement affiché
+let currentIndex = 0;
 
-// Sélection des éléments du DOM pour mettre à jour le carrousel
+// Sélection éléments DOM
 const charImg = document.getElementById('char-img');
 const charName = document.getElementById('char-name');
 const charPower = document.getElementById('char-power');
@@ -63,70 +59,62 @@ const charTransformations = document.getElementById('char-transformations');
 const charRelations = document.getElementById('char-relations');
 const charCouple = document.getElementById('char-couple');
 const powerBar = document.getElementById('power-bar');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
 
-const prevBtn = document.getElementById('prevBtn'); // Bouton précédent
-const nextBtn = document.getElementById('nextBtn'); // Bouton suivant
+const maxPower = 10000;
 
-const maxPower = 10000; // Puissance max pour calcul proportionnel de la barre
-
-// Fonction pour mettre à jour l'affichage du personnage
 function updateCharacter() {
-  const char = characters[currentIndex]; // Personnage actuel
-  charImg.src = char.img; // Image principale
-  charImg.style.opacity = 1; // Animation d'apparition
-  charName.textContent = char.name; // Nom
-  charHistory.innerHTML = `<strong>Histoire:</strong> ${char.history}`; // Histoire
-  charSummary.innerHTML = `<strong>Résumé:</strong> ${char.summary}`; // Résumé
-  charRelations.textContent = `Relations: ${char.relations}`; // Relations
-  charCouple.textContent = `Couple: ${char.couple}`; // Couple
+  const char = characters[currentIndex];
+  charImg.src = char.img;
+  charImg.style.opacity = 1;
+  charName.textContent = char.name;
+  charHistory.innerHTML = `<strong>Histoire:</strong> ${char.history}`;
+  charSummary.innerHTML = `<strong>Résumé:</strong> ${char.summary}`;
+  charRelations.textContent = `Relations: ${char.relations}`;
+  charCouple.textContent = `Couple: ${char.couple}`;
 
-  // Barre de puissance
-  const numericPower = parseInt(char.power.replace('+','')) || 0; // Extraction du nombre
-  const powerPercent = Math.min((numericPower / maxPower) * 100, 100); // Calcul proportionnel
-  powerBar.style.width = powerPercent + '%'; // Largeur de la barre
-  powerBar.textContent = char.power; // Affiche la puissance en texte
+  const numericPower = parseInt(char.power.replace('+','')) || 0;
+  const powerPercent = Math.min((numericPower / maxPower) * 100, 100);
+  powerBar.style.width = powerPercent + '%';
+  powerBar.textContent = char.power;
 
-  // Transformations interactives
   charTransformations.innerHTML = '<strong>Transformations:</strong> ' + 
     char.transformationsList.map(t => 
-      `<span class="transformation" data-img="${t.img}">${t.name}</span>` // Chaque transformation est hoverable
+      `<span class="transformation" data-img="${t.img}">${t.name}</span>`
     ).join(', ');
 
-  const transElements = document.querySelectorAll('.transformation'); // Sélection des spans de transformation
+  const transElements = document.querySelectorAll('.transformation');
   transElements.forEach(el => {
     let hoverTimeout;
-
-    el.addEventListener('mouseover', () => { // Au survol
+    el.addEventListener('mouseover', () => {
       hoverTimeout = setTimeout(() => {
-        charImg.style.opacity = 0; // Animation de disparition
+        charImg.style.opacity = 0;
         setTimeout(() => {
-          charImg.src = el.dataset.img; // Change l'image pour la transformation
-          charImg.style.opacity = 1; // Animation d'apparition
+          charImg.src = el.dataset.img;
+          charImg.style.opacity = 1;
         }, 200);
-      }, 200); // Petit délai pour moins de sensibilité
+      }, 200);
     });
-
-    el.addEventListener('mouseout', () => { // Quand le curseur quitte
-      clearTimeout(hoverTimeout); // Annule le timeout si l'utilisateur part vite
-      charImg.style.opacity = 0; // Animation disparition
+    el.addEventListener('mouseout', () => {
+      clearTimeout(hoverTimeout);
+      charImg.style.opacity = 0;
       setTimeout(() => {
-        charImg.src = char.img; // Revenir à l'image de base
+        charImg.src = char.img;
         charImg.style.opacity = 1;
       }, 200);
     });
   });
 }
 
-// Boutons précédent / suivant
 prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + characters.length) % characters.length; // Navigation circulaire
+  currentIndex = (currentIndex - 1 + characters.length) % characters.length;
   updateCharacter();
 });
-
 nextBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % characters.length; // Navigation circulaire
+  currentIndex = (currentIndex + 1) % characters.length;
   updateCharacter();
 });
 
-// Initialiser le carrousel au chargement
+// Initialisation
 updateCharacter();

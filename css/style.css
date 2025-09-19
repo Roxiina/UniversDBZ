@@ -1,5 +1,4 @@
 :root {
-  /* Variables CSS pour les couleurs */
   --orange: #f6981e;
   --dark-bg: #1c1c1c;
   --light-bg: #2a2a2a;
@@ -9,95 +8,50 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Évite que padding/margin affecte la taille totale */
+  box-sizing: border-box;
 }
 
+/* ------------------ BODY ------------------ */
 body {
   font-family: 'Arial', sans-serif;
   background: url("../images/background.jpg") no-repeat center center fixed;
-  background-size: cover; /* l’image s’adapte à l’écran */
+  background-size: cover;
   color: var(--white);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  line-height: 1.5;
 }
 
 body::before {
   content: "";
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* voile noir transparent */
-  z-index: -1; /* derrière le contenu */
+  background: rgba(0,0,0,0.6);
+  z-index: -1;
 }
 
-/* Header */
-header {
-  background-color: var(--light-bg);
-  padding: 10px 20px;
-  position: sticky; /* Reste en haut lors du scroll */
+/* ------------------ HEADER ------------------ */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  position: sticky;
   top: 0;
+  background-color: var(--light-bg);
   z-index: 100;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
 }
 
-.logo {
-  position: absolute;
-  left: 10px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  height: 100%;          /* prend toute la hauteur du header */
-  box-sizing: border-box;
-}
-
-.logo img {
-  max-height: 20px;      /* s’adapte à la hauteur du header */
-  height: auto;          /* garde les proportions */
-  width: auto;
-}
-
-.logo span {
-  font-size: 1.5rem;     /* texte plus grand pour un header plus haut */
-  font-weight: bold;
-  color: var(--orange);
-  white-space: nowrap;
-}
-
-header, .logo span {
-  font-family: 'Bangers', cursive;
-}
-
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 40px;
-  justify-content: center;
-  align-items: center;
-}
-
-.nav-links li a {
-  color: var(--white);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 18px;
-  transition: color 0.3s; /* Animation au hover */
-}
-
-.nav-links li a:hover {
-  color: var(--orange);
-}
-
-/* Burger menu */
+/* Burger */
 .burger {
-  display: none; /* Caché sur desktop */
+  display: none;
   flex-direction: column;
   cursor: pointer;
+  order: 1;
 }
-
 .burger div {
   width: 25px;
   height: 3px;
@@ -105,43 +59,44 @@ header, .logo span {
   margin: 4px 0;
 }
 
-/* Menu burger responsive */
-@media screen and (max-width: 768px) {
-  .nav-links {
-    display: none; /* Caché par défaut */
-    flex-direction: column;
-    background-color: var(--light-bg);
-    width: 100%;
-    text-align: center;
-  }
-  .nav-links.nav-active {
-    display: flex; /* Affiché quand actif */
-  }
-  .burger {
-    display: flex; /* Affiché sur mobile */
-  }
+/* Navigation */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  order: 2;
 }
-
-/* Hero section */
-.hero {
-  text-align: center;
-  padding: 80px 20px;
-  background-size: cover;
-  background-position: center;
+.nav-links li a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 18px;
+  transition: color 0.3s;
 }
+.nav-links li a:hover { color: var(--orange); }
 
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  order: 3;
+}
+.logo img { max-height: 40px; width: auto; }
+.logo span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'Bangers', cursive;
   color: var(--orange);
 }
 
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
+/* ------------------ HERO ------------------ */
+.hero { text-align: center; padding: 80px 20px; }
+.hero h1 { font-size: 2.5rem; margin-bottom: 20px; color: var(--orange); }
+.hero p { font-size: 1.2rem; margin-bottom: 20px; }
 
-/* Carousel interactif */
+/* ------------------ CARROUSEL ------------------ */
 .carousel-interactive {
   display: flex;
   justify-content: center;
@@ -149,144 +104,121 @@ header, .logo span {
   gap: 20px;
   margin: 40px 0;
 }
-
 .character-display {
   display: flex;
   gap: 20px;
   background-color: var(--light-bg);
   padding: 20px;
   border-radius: 10px;
-  width: 600px;
   align-items: center;
 }
-
 .character-display img {
   width: 250px;
-  height: 350px; /* taille fixe pour toutes les images */
+  height: 350px;
   border-radius: 10px;
   object-fit: cover;
-  transition: opacity 0.3s ease;
-  animation: float 4s ease-in-out infinite; /* animation flottante verticale */
+  transition: opacity 0.3s ease, transform 0.3s;
+  animation: float 4s ease-in-out infinite;
 }
-
-/* Animation flottante verticale */
 @keyframes float {
-  0% { transform: translateY(0px); }
-  25% { transform: translateY(-10px); }
-  50% { transform: translateY(0px); }
-  75% { transform: translateY(10px); }
-  100% { transform: translateY(0px); }
+  0%,50%,100%{transform:translateY(0);}
+  25%{transform:translateY(-10px);}
+  75%{transform:translateY(10px);}
 }
+.char-info { display:flex; flex-direction:column; justify-content:center; flex:1; }
+.char-info h2 { color: var(--orange); margin-bottom:10px; }
+.char-info p { margin-bottom:8px; }
+.transformation { cursor:pointer; color:#ffd700; margin-right:5px; transition: color 0.3s; }
+.transformation:hover { color:#ff4500; text-decoration:underline; }
 
-.char-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex: 1;
-}
-
-.char-info h2 {
-  margin-bottom: 10px;
-  color: var(--orange);
-}
-
-.char-info p {
-  margin-bottom: 8px;
-}
-
-.transformation {
-  cursor: pointer;
-  color: #ffd700; /* doré pour transformations */
-  margin-right: 5px;
-  transition: color 0.3s;
-}
-
-.transformation:hover {
-  color: #ff4500; /* orange-rouge au hover */
-  text-decoration: underline;
-}
-
-/* Flèches du carrousel */
+/* Flèches carrousel */
+/* Boutons flèches carrousel : pas de fond, pas de bordure */
 #prevBtn, #nextBtn {
-  background: none;
-  border: none;
-  padding: 0;
+  background: none;      /* supprime le fond blanc */
+  border: none;          /* supprime la bordure */
+  padding: 0;            /* retire le padding */
+  cursor: pointer;
+}
+
+#prevBtn:focus, #nextBtn:focus {
+  outline: none;         /* supprime le contour bleu au focus */
 }
 
 #prevBtn img, #nextBtn img {
-  width: 100px; 
-  height: 100px;
+  width: 15vw;
+  max-width: 80px;
+  height: auto;
   cursor: pointer;
   transition: transform 0.2s;
 }
+#prevBtn img:hover, #nextBtn img:hover { transform: scale(1.1); }
 
-#prevBtn img:hover, #nextBtn img:hover {
-  transform: scale(1.2); /* Zoom au hover */
-}
-
-/* Barre de puissance */
+/* Barre puissance */
 .power-bar-container {
   background-color: #555;
   width: 100%;
   height: 20px;
   border-radius: 10px;
-  margin: 10px 0 20px 0;
+  margin: 10px 0 20px;
   overflow: hidden;
-  position: relative;
 }
-
 #power-bar {
   height: 100%;
-  width: 0%; /* initialement vide */
+  width: 0%;
   background-color: var(--orange);
   border-radius: 10px;
-  transition: width 0.5s ease; /* animation lors du changement */
+  transition: width 0.5s ease;
   text-align: center;
   color: #000;
   font-weight: bold;
   line-height: 20px;
 }
 
-/* Logo DBZ */
-.carousel-logo {
-  text-align: center;
-  margin: 20px 0;
-}
+/* Logo DBZ carrousel */
+.carousel-logo { text-align: center; margin: 20px 0; }
+.carousel-logo img { width: 20%; max-width: 200px; height:auto; margin:0 auto; display:block; }
 
-.carousel-logo img {
-  width: 20%;
-  max-width: 200px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Footer */
+/* ------------------ FOOTER ------------------ */
 footer {
   text-align: center;
+  padding: 15px 0;
+  background-color: var(--light-bg);
+  margin-top:auto; /* pousse footer en bas */
 }
 
-/* Page personnages */
+/* ------------------ PAGE PERSONNAGES ------------------ */
 .characters {
   display: flex;
   justify-content: space-between;
-  align-items: stretch;
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  gap: 0;
+  flex-wrap: wrap;
 }
-
 .character-img {
   flex: 1 1 0;
   width: 100%;
-  height: 100vh; /* occupe toute la hauteur */
+  height: 100vh;
   object-fit: cover;
-  margin: 0;
-  border-radius: 0;
+}
+.character-img:hover { transform: scale(1.05); }
+
+/* ------------------ RESPONSIVE ------------------ */
+@media screen and (max-width: 1024px){
+  .character-display { flex-direction: column; width:90%; }
+  .character-display img { width:80%; height:auto; margin:0 auto; }
 }
 
-.character-img:hover {
-  transform: scale(1.05); /* zoom léger au hover */
+@media screen and (max-width: 768px){
+  .burger { display:flex; }
+  .nav-links { 
+    display:none; flex-direction:column; width:100%; position:absolute; top:60px; left:0; background-color:var(--light-bg); text-align:center; gap:15px; padding:10px 0; 
+  }
+  .nav-links.nav-active { display:flex; }
+  .hero h1 { font-size:2rem; }
+  .hero p { font-size:1rem; }
+  .carousel-logo img { width:40%; }
+  .characters { flex-direction:column; height:auto; }
+  .character-img { width:100%; height:auto; }
 }
 
+@media screen and (max-width:480px){
+  #prevBtn img, #nextBtn img { width:20vw; max-width:60px; }
+}
