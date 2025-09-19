@@ -45,11 +45,31 @@ header {
 
 .logo {
   position: absolute;
-  left: 20px;
-  font-size: 1.8rem;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  height: 100%;          /* prend toute la hauteur du header */
+  box-sizing: border-box;
+}
+
+.logo img {
+  max-height: 20px;      /* s’adapte à la hauteur du header */
+  height: auto;          /* garde les proportions */
+  width: auto;
+}
+
+.logo span {
+  font-size: 1.5rem;     /* texte plus grand pour un header plus haut */
   font-weight: bold;
   color: var(--orange);
+  white-space: nowrap;
 }
+
+header, .logo span {
+  font-family: 'Bangers', cursive;
+}
+
 
 .nav-links {
   list-style: none;
